@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Casa Regole</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root { --bg-color: #161618; --line-color: rgba(255, 255, 255, 0.08); --vector-white: #ffffff; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg-color); color: #d1d5db; }
+        h1, h2, h3, .font-syne { font-family: 'Syne', sans-serif; }
+        .vector-grid {
+            background-size: 60px 60px;
+            background-image: linear-gradient(to right, var(--line-color) 1px, transparent 1px),
+                              linear-gradient(to bottom, var(--line-color) 1px, transparent 1px);
+            background-position: center center;
+        }
+        .tech-border { position: relative; border: 1px solid var(--line-color); }
+        .tech-border::before {
+            content: ''; position: absolute; top: -1px; left: -1px; width: 8px; height: 8px;
+            border-top: 1px solid var(--vector-white); border-left: 1px solid var(--vector-white);
+        }
+        .tech-border::after {
+            content: ''; position: absolute; bottom: -1px; right: -1px; width: 8px; height: 8px;
+            border-bottom: 1px solid var(--vector-white); border-right: 1px solid var(--vector-white);
+        }
+        .text-hollow { -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5); color: transparent; }
+        
+        /* Efecto elegante para el mapa en modo oscuro */
+        .map-container iframe {
+            filter: grayscale(100%) invert(92%) contrast(83%);
+            transition: filter 0.5s ease;
+        }
+        .map-container:hover iframe {
+            filter: grayscale(50%) invert(92%) contrast(83%);
+        }
+    </style>
+</head>
+<body class="vector-grid overflow-x-hidden antialiased selection:bg-white selection:text-black relative">
+
+    <nav class="fixed top-8 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-[600px]">
+        <div class="bg-[#1a1a1c]/80 backdrop-blur-xl border border-white/10 rounded-full px-2 py-2 flex justify-between items-center shadow-2xl">
+            
+            <a href="index.html" class="bg-white rounded-full h-10 w-10 flex items-center justify-center ml-1 overflow-hidden p-2 hover:scale-105 transition-transform">
+                <img src="assets/logo.png" alt="Casa Regole" class="h-full w-full object-contain">
+            </a>
+            
+            <div class="hidden md:flex gap-6 items-center">
+                <a href="index.html" class="text-white text-sm font-semibold tracking-wide">Inicio</a>
+                <a href="servicios.html" class="text-gray-400 hover:text-white transition-colors text-sm font-semibold tracking-wide">Servicios</a>
+                <a href="portafolio.html" class="text-gray-400 hover:text-white transition-colors text-sm font-semibold tracking-wide">Portafolio</a>
+            </div>
+            
+            <a href="contacto.html" class="hidden md:block px-6 py-2 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all text-sm font-semibold">
+                Contacto
+            </a>
+
+            <button id="open-nav" class="md:hidden text-white mr-3">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div id="nav-overlay" class="fixed inset-0 bg-[#161618] z-[110] translate-x-full transition-transform duration-500 flex flex-col justify-center p-12 vector-grid">
+        <button id="close-nav" class="absolute top-10 right-10 text-white"><i data-lucide="x" class="w-10 h-10"></i></button>
+        <div class="flex flex-col gap-8">
+            <a href="index.html" class="font-syne text-5xl text-white">Inicio.</a>
+            <a href="servicios.html" class="font-syne text-5xl text-gray-500 hover:text-white transition-colors">Servicios.</a>
+            <a href="portafolio.html" class="font-syne text-5xl text-gray-500 hover:text-white transition-colors">Portafolio.</a>
+            <a href="contacto.html" class="font-syne text-5xl text-gray-500 hover:text-white transition-colors mt-8">Contacto.</a>
+        </div>
+    </div>
+
+    <main class="max-w-[1400px] mx-auto px-6 pt-48 pb-32">
+        <div class="grid lg:grid-cols-12 gap-16 lg:gap-20">
+            
+            <div class="lg:col-span-5">
+                <span class="text-white/50 text-sm tracking-[0.3em] uppercase mb-4 block">// INICIAR PROYECTO</span>
+                <h1 class="font-syne text-5xl md:text-7xl leading-none text-white mb-8">
+                    Hablemos de <br><span class="text-hollow">Negocios.</span>
+                </h1>
+                <p class="text-gray-400 font-light leading-relaxed mb-12 max-w-md">
+                    Ya sea una campaña creativa, un viaje corporativo o la logística de un evento masivo, estamos listos para aportar el profesionalismo y creatividad que tu marca necesita.
+                </p>
+
+                <div class="space-y-8 mb-12">
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="map-pin" class="w-6 h-6 text-white mt-1"></i>
+                        <div>
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gray-500 block mb-1">Sede Corporativa</span>
+                            <p class="text-white text-sm leading-relaxed">
+                                Blvd Pedro Figueroa Siller #2990 <br>
+                                Int. A-20 y A-21, Col. San Patricio <br>
+                                Saltillo, Coahuila, México. C.P. 25204
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="mail" class="w-6 h-6 text-white mt-1"></i>
+                        <div>
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gray-500 block mb-1">Contacto Digital</span>
+                            <p class="text-white text-sm">contacto@casaregole.com.mx</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="phone" class="w-6 h-6 text-white mt-1"></i>
+                        <div>
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gray-500 block mb-1">Línea Directa</span>
+                            <p class="text-white text-sm">+52 (844) 000 0000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-white/10 pt-8">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-gray-500 block mb-4">Atención Ejecutiva Inmediata</span>
+                    <a href="https://wa.me/528440000000" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-black font-semibold rounded-sm hover:bg-gray-200 transition-colors text-sm w-full md:w-auto">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        Contactar vía WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 tech-border bg-white/5 p-4 md:p-6 relative flex flex-col h-[500px] lg:h-auto">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="font-syne text-xl text-white">Ubicación Estratégica</h3>
+                    <span class="text-[10px] tracking-widest uppercase text-white/50">Satélite / GPS</span>
+                </div>
+                
+                <div class="w-full h-full flex-grow bg-black relative map-container border border-white/10">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.626294713739!2d-100.97014872413554!3d25.48413152285897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86881329bf36b69d%3A0xc4f4dc9eeb2db380!2sBlvd.%20Pedro%20Figueroa%20Siller%202990%2C%20San%20Patricio%2C%2025204%20Saltillo%2C%20Coah.!5e0!3m2!1ses!2smx!4v1709230000000!5m2!1ses!2smx" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer class="border-t border-white/10 bg-[#111112] pt-20 pb-10 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 vector-grid opacity-30 pointer-events-none"></div>
+        
+        <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+            
+            <div class="lg:col-span-6">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-white flex items-center justify-center p-2 rounded-sm">
+                        <img src="assets/logo.png" alt="logo" class="h-full w-full object-contain">
+                    </div>
+                    <div>
+                        <h4 class="font-syne text-2xl text-white leading-none">Casa Regole</h4>
+                        <span class="text-[10px] tracking-[0.2em] text-gray-500 uppercase">S.A. de C.V.</span>
+                    </div>
+                </div>
+                <p class="text-gray-500 text-sm max-w-sm leading-relaxed">
+                    Versatilidad y soluciones integrales. Destacamos por nuestro profesionalismo, creatividad y compromiso con la satisfacción total de cada cliente.
+                </p>
+            </div>
+
+            <div class="lg:col-span-6 flex flex-col lg:items-end">
+                <h5 class="text-white text-sm font-semibold tracking-wider uppercase mb-4">Sede Operativa</h5>
+                <p class="text-gray-400 text-sm leading-relaxed lg:text-right">
+                    Blvd Pedro Figueroa Siller #2990 <br>
+                    Int. A-20 y A-21, San Patricio <br>
+                    Saltillo, Coahuila C.P. 25204
+                </p>
+            </div>
+
+        </div>
+
+        <div class="max-w-[1400px] mx-auto border-t border-white/10 mt-20 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+            <span class="text-xs text-gray-600 font-light">© 2026 Casa Regole S.A. de C.V. Todos los derechos reservados.</span>
+            <div class="flex gap-4">
+                <span class="text-xs text-gray-600 font-light">Saltillo, MX</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Control del menú móvil
+        const openNav = document.getElementById('open-nav');
+        const closeNav = document.getElementById('close-nav');
+        const navOverlay = document.getElementById('nav-overlay');
+
+        openNav.onclick = () => {
+            navOverlay.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+        };
+        closeNav.onclick = () => {
+            navOverlay.classList.add('translate-x-full');
+            document.body.style.overflow = 'auto';
+        };
+    </script>
+</body>
+</html>

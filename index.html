@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Regole | Agencia Creativa & Turismo</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --bg-color: #161618;
+            --line-color: rgba(255, 255, 255, 0.08);
+            --vector-white: #ffffff;
+        }
+
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            background-color: var(--bg-color); 
+            color: #d1d5db; 
+        }
+
+        h1, h2, h3, .font-syne { font-family: 'Syne', sans-serif; }
+
+        /* Fondo de cuadrícula vectorial */
+        .vector-grid {
+            background-size: 60px 60px;
+            background-image: 
+                linear-gradient(to right, var(--line-color) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--line-color) 1px, transparent 1px);
+            background-position: center center;
+        }
+
+        /* Cruces de intersección arquitectónica */
+        .crosshair { position: relative; }
+        .crosshair::before, .crosshair::after {
+            content: ''; position: absolute; background-color: rgba(255,255,255,0.3);
+        }
+        .crosshair::before { width: 11px; height: 1px; top: -1px; left: -5px; }
+        .crosshair::after { width: 1px; height: 11px; top: -5px; left: -1px; }
+
+        /* Esquinas técnicas para las tarjetas */
+        .tech-border {
+            position: relative;
+            border: 1px solid var(--line-color);
+        }
+        .tech-border::before {
+            content: ''; position: absolute; top: -1px; left: -1px; width: 8px; height: 8px;
+            border-top: 1px solid var(--vector-white); border-left: 1px solid var(--vector-white);
+        }
+        .tech-border::after {
+            content: ''; position: absolute; bottom: -1px; right: -1px; width: 8px; height: 8px;
+            border-bottom: 1px solid var(--vector-white); border-right: 1px solid var(--vector-white);
+        }
+
+        .text-hollow {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="vector-grid overflow-x-hidden antialiased selection:bg-white selection:text-black relative">
+
+    <nav class="fixed top-8 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-[600px]">
+        <div class="bg-[#1a1a1c]/80 backdrop-blur-xl border border-white/10 rounded-full px-2 py-2 flex justify-between items-center shadow-2xl">
+            
+            <a href="index.html" class="bg-white rounded-full h-10 w-10 flex items-center justify-center ml-1 overflow-hidden p-2 hover:scale-105 transition-transform">
+                <img src="assets/logo.png" alt="Casa Regole" class="h-full w-full object-contain">
+            </a>
+            
+            <div class="hidden md:flex gap-6 items-center">
+                <a href="index.html" class="text-white text-sm font-semibold tracking-wide">Inicio</a>
+                <a href="servicios.html" class="text-gray-400 hover:text-white transition-colors text-sm font-semibold tracking-wide">Servicios</a>
+                <a href="portafolio.html" class="text-gray-400 hover:text-white transition-colors text-sm font-semibold tracking-wide">Portafolio</a>
+            </div>
+            
+            <a href="contacto.html" class="hidden md:block px-6 py-2 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all text-sm font-semibold">
+                Contacto
+            </a>
+
+            <button id="open-nav" class="md:hidden text-white mr-3">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div id="nav-overlay" class="fixed inset-0 bg-[#161618] z-[110] translate-x-full transition-transform duration-500 flex flex-col justify-center p-12 vector-grid">
+        <button id="close-nav" class="absolute top-10 right-10 text-white"><i data-lucide="x" class="w-10 h-10"></i></button>
+        <div class="flex flex-col gap-8">
+            <a href="index.html" class="font-syne text-5xl text-white">Inicio.</a>
+            <a href="servicios.html" class="font-syne text-5xl text-gray-500 hover:text-white transition-colors">Servicios.</a>
+            <a href="portafolio.html" class="font-syne text-5xl text-gray-500 hover:text-white transition-colors">Portafolio.</a>
+            <a href="contacto.html" class="font-syne text-5xl text-gray-500 hover:text-white transition-colors mt-8">Contacto.</a>
+        </div>
+    </div>
+
+    <main class="min-h-screen flex flex-col justify-center max-w-[1400px] mx-auto px-6 pt-32 pb-20 relative">
+        
+        <div class="absolute top-28 right-12 opacity-[0.04] pointer-events-none hidden xl:block">
+            <div class="w-[400px] h-[400px] border-[0.5px] border-white relative flex items-center justify-center p-12">
+                <div class="absolute w-full h-[0.5px] bg-white"></div>
+                <div class="absolute h-full w-[0.5px] bg-white"></div>
+                <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></div>
+                <div class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></div>
+                <div class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></div>
+                <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></div>
+                <img src="assets/logo.png" alt="Watermark Logo" class="w-64 h-64 object-contain">
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-8 z-10">
+                
+                <div class="mb-6 flex items-center gap-4">
+                    <img src="assets/logo.png" alt="Logo Icon" class="h-24 w-auto object-contain brightness-200">
+                    <span class="w-12 h-[1px] bg-white/30"></span> 
+                    <p class="text-white/50 text-sm tracking-[0.3em] uppercase">
+                        Casa Regole S.A. de C.V.
+                    </p>
+                </div>
+
+                <h1 class="font-syne text-5xl md:text-7xl lg:text-[6rem] leading-[1.05] tracking-tight text-white mb-8">
+                    Estrategia, <br>
+                    <span class="text-hollow">Comunicación</span> <br>
+                    & Experiencias.
+                </h1>
+                <div class="flex flex-col sm:flex-row gap-6 mt-12">
+                    <a href="servicios.html" class="px-8 py-4 bg-white text-black rounded-sm hover:bg-gray-200 transition-colors font-semibold text-center flex items-center justify-center gap-2">
+                        Explorar Servicios <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="portafolio.html" class="px-8 py-4 border border-white/20 text-white rounded-sm hover:bg-white/5 transition-colors font-semibold text-center">
+                        Ver Portafolio
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-4 tech-border bg-[#161618]/50 backdrop-blur-sm p-8 z-10">
+                <i data-lucide="quote" class="w-8 h-8 text-white/20 mb-6"></i>
+                <p class="text-gray-400 font-light leading-relaxed text-sm">
+                    Casa Regole es una empresa especializada en servicios de publicidad, mercadotecnia y desarrollo de estrategias creativas. 
+                    <br><br>
+                    A través de soluciones de comunicación, herramientas de promoción y una robusta logística turística y de eventos, contribuimos al posicionamiento y crecimiento exponencial de marcas.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <section class="max-w-[1400px] mx-auto px-6 mb-40 relative">
+        <div class="crosshair absolute top-0 left-6"></div>
+        <div class="crosshair absolute top-0 right-6"></div>
+
+        <div class="border-t border-white/10 pt-16 flex flex-col md:flex-row justify-between items-end mb-16">
+            <div>
+                <h2 class="font-syne text-4xl md:text-5xl text-white">Nuestras<br>Verticales.</h2>
+            </div>
+            <p class="text-gray-500 max-w-sm text-sm mt-6 md:mt-0">Soluciones integrales que combinan creatividad con logística operativa de alto nivel.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div class="tech-border p-8 bg-gradient-to-b from-white/5 to-transparent hover:from-white/10 transition-all group">
+                <i data-lucide="megaphone" class="w-10 h-10 text-white mb-16 group-hover:scale-110 transition-transform origin-left"></i>
+                <h3 class="font-syne text-2xl text-white mb-3">Publicidad & MKT</h3>
+                <p class="text-gray-400 text-sm font-light leading-relaxed">
+                    Desarrollo de estrategias creativas y soluciones de comunicación para fortalecer el posicionamiento de marcas en el mercado.
+                </p>
+            </div>
+
+            <div class="tech-border p-8 bg-gradient-to-b from-white/5 to-transparent hover:from-white/10 transition-all group">
+                <i data-lucide="compass" class="w-10 h-10 text-white mb-16 group-hover:scale-110 transition-transform origin-left"></i>
+                <h3 class="font-syne text-2xl text-white mb-3">Agencia de Viajes</h3>
+                <p class="text-gray-400 text-sm font-light leading-relaxed">
+                    Planeación y gestión de viajes nacionales e internacionales, reservaciones, paquetes turísticos y experiencias personalizadas.
+                </p>
+            </div>
+
+            <div class="tech-border p-8 bg-gradient-to-b from-white/5 to-transparent hover:from-white/10 transition-all group">
+                <i data-lucide="calendar-check-2" class="w-10 h-10 text-white mb-16 group-hover:scale-110 transition-transform origin-left"></i>
+                <h3 class="font-syne text-2xl text-white mb-3">Gestión de Eventos</h3>
+                <p class="text-gray-400 text-sm font-light leading-relaxed">
+                    Organización, coordinación y apoyo logístico para convenciones, exposiciones, ferias comerciales e industriales.
+                </p>
+            </div>
+
+            <div class="tech-border p-8 bg-gradient-to-b from-white/5 to-transparent hover:from-white/10 transition-all group">
+                <i data-lucide="ticket" class="w-10 h-10 text-white mb-16 group-hover:scale-110 transition-transform origin-left"></i>
+                <h3 class="font-syne text-2xl text-white mb-3">Espectáculos</h3>
+                <p class="text-gray-400 text-sm font-light leading-relaxed">
+                    Promoción y coordinación de eventos artísticos, deportivos, culturales y de entretenimiento masivo.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 bg-[#111112] pt-20 pb-10 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 vector-grid opacity-30 pointer-events-none"></div>
+        
+        <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+            
+            <div class="lg:col-span-6">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-white flex items-center justify-center p-2 rounded-sm">
+                        <img src="assets/logo.png" alt="logo" class="h-full w-full object-contain">
+                    </div>
+                    <div>
+                        <h4 class="font-syne text-2xl text-white leading-none">Casa Regole</h4>
+                        <span class="text-[10px] tracking-[0.2em] text-gray-500 uppercase">S.A. de C.V.</span>
+                    </div>
+                </div>
+                <p class="text-gray-500 text-sm max-w-sm leading-relaxed">
+                    Versatilidad y soluciones integrales. Destacamos por nuestro profesionalismo, creatividad y compromiso con la satisfacción total de cada cliente.
+                </p>
+            </div>
+
+            <div class="lg:col-span-6 flex flex-col lg:items-end">
+                <h5 class="text-white text-sm font-semibold tracking-wider uppercase mb-4">Sede Operativa</h5>
+                <p class="text-gray-400 text-sm leading-relaxed lg:text-right">
+                    Blvd Pedro Figueroa Siller #2990 <br>
+                    Int. A-20 y A-21, San Patricio <br>
+                    Saltillo, Coahuila C.P. 25204
+                </p>
+                <a href="contacto.html" class="mt-6 flex items-center gap-2 text-white hover:text-gray-300 transition-colors text-sm border-b border-white pb-1">
+                    Contactar Agencia <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="max-w-[1400px] mx-auto border-t border-white/10 mt-20 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+            <span class="text-xs text-gray-600 font-light">© 2026 Casa Regole S.A. de C.V. Todos los derechos reservados.</span>
+            <div class="flex gap-4">
+                <span class="text-xs text-gray-600 font-light">Saltillo, MX</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Control del menú móvil
+        const openNav = document.getElementById('open-nav');
+        const closeNav = document.getElementById('close-nav');
+        const navOverlay = document.getElementById('nav-overlay');
+
+        openNav.onclick = () => {
+            navOverlay.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+        };
+        closeNav.onclick = () => {
+            navOverlay.classList.add('translate-x-full');
+            document.body.style.overflow = 'auto';
+        };
+    </script>
+</body>
+</html>

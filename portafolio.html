@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Casa Regole</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root { --bg-color: #161618; --line-color: rgba(255, 255, 255, 0.08); --vector-white: #ffffff; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg-color); color: #d1d5db; }
+        h1, h2, h3, h4, .font-syne { font-family: 'Syne', sans-serif; }
+        
+        .vector-grid {
+            background-size: 60px 60px;
+            background-image: linear-gradient(to right, var(--line-color) 1px, transparent 1px),
+                              linear-gradient(to bottom, var(--line-color) 1px, transparent 1px);
+            background-position: center center;
+        }
+        
+        .crosshair { position: relative; }
+        .crosshair::before, .crosshair::after {
+            content: ''; position: absolute; background-color: rgba(255,255,255,0.3);
+        }
+        .crosshair::before { width: 11px; height: 1px; top: -1px; left: -5px; }
+        .crosshair::after { width: 1px; height: 11px; top: -5px; left: -1px; }
+
+        .tech-border { position: relative; border: 1px solid var(--line-color); }
+        .tech-border::before {
+            content: ''; position: absolute; top: -1px; left: -1px; width: 8px; height: 8px;
+            border-top: 1px solid var(--vector-white); border-left: 1px solid var(--vector-white);
+        }
+        .tech-border::after {
+            content: ''; position: absolute; bottom: -1px; right: -1px; width: 8px; height: 8px;
+            border-bottom: 1px solid var(--vector-white); border-right: 1px solid var(--vector-white);
+        }
+        .text-hollow { -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5); color: transparent; }
+    </style>
+</head>
+<body class="vector-grid overflow-x-hidden antialiased selection:bg-white selection:text-black relative">
+
+    <!-- NAV FLOTANTE -->
+    <nav class="fixed top-8 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-[600px]">
+        <div class="bg-[#1a1a1c]/80 backdrop-blur-xl border border-white/10 rounded-full px-2 py-2 flex justify-between items-center shadow-2xl">
+            
+            <a href="index.html" class="bg-white rounded-full h-10 w-10 flex items-center justify-center ml-1 overflow-hidden p-2 hover:scale-105 transition-transform">
+                <img src="assets/logo.png" alt="Casa Regole" class="h-full w-full object-contain">
+            </a>
+            
+            <div class="hidden md:flex gap-6 items-center">
+                <a href="index.html" class="text-gray-400 hover:text-white transition-colors text-sm font-semibold tracking-wide">Inicio</a>
+                <a href="servicios.html" class="text-gray-400 hover:text-white transition-colors text-sm font-semibold tracking-wide">Servicios</a>
+                <a href="portafolio.html" class="text-white text-sm font-semibold tracking-wide">Portafolio</a>
+            </div>
+            
+            <a href="contacto.html" class="hidden md:block px-6 py-2 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all text-sm font-semibold">
+                Contacto
+            </a>
+
+            <button id="open-nav" class="md:hidden text-white mr-3">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MENÚ MÓVIL OVERLAY -->
+    <div id="nav-overlay" class="fixed inset-0 bg-[#161618] z-[110] translate-x-full transition-transform duration-500 flex flex-col justify-center p-12 vector-grid">
+        <button id="close-nav" class="absolute top-10 right-10 text-white"><i data-lucide="x" class="w-10 h-10"></i></button>
+        <div class="flex flex-col gap-8">
+            <a href="index.html" class="font-syne text-5xl text-gray-500 hover:text-white transition-colors">Inicio.</a>
+            <a href="servicios.html" class="font-syne text-5xl text-gray-500 hover:text-white transition-colors">Servicios.</a>
+            <a href="portafolio.html" class="font-syne text-5xl text-white">Portafolio.</a>
+            <a href="contacto.html" class="font-syne text-5xl text-gray-500 hover:text-white transition-colors mt-8">Contacto.</a>
+        </div>
+    </div>
+
+    <!-- HEADER PORTAFOLIO -->
+    <main class="max-w-[1400px] mx-auto px-6 pt-48 pb-12">
+        <span class="text-white/50 text-sm tracking-[0.3em] uppercase mb-4 block">// INFRAESTRUCTURA Y RESPALDO</span>
+        <h1 class="font-syne text-5xl md:text-7xl leading-none text-white mb-6">
+            Trayectoria & <br><span class="text-hollow">Despliegue.</span>
+        </h1>
+        <p class="text-gray-400 max-w-2xl font-light leading-relaxed text-base">
+            Registro verificable de nuestra capacidad operativa y de gestión. No dependemos de aciertos fortuitos; estructuramos procesos logísticos y de comunicación medibles para garantizar la continuidad del negocio y el impacto de marca.
+        </p>
+    </main>
+
+    <!-- NUEVA SECCIÓN: INDICADORES GLOBALES (MÉTRICAS TÉCNICAS) -->
+    <section class="max-w-[1400px] mx-auto px-6 mb-24">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="tech-border bg-[#111112]/40 p-6 backdrop-blur-sm">
+                <span class="font-syne text-4xl lg:text-5xl font-bold text-white block mb-2">+45K</span>
+                <span class="text-[10px] text-gray-500 tracking-widest uppercase font-semibold block mb-1">Pasajeros Coordinados</span>
+                <p class="text-xs text-gray-400 font-light">Logística de traslados controlada bajo estándares corporativos.</p>
+            </div>
+            <div class="tech-border bg-[#111112]/40 p-6 backdrop-blur-sm">
+                <span class="font-syne text-4xl lg:text-5xl font-bold text-white block mb-2">+120</span>
+                <span class="text-[10px] text-gray-500 tracking-widest uppercase font-semibold block mb-1">Eventos Masivos e Industriales</span>
+                <p class="text-xs text-gray-400 font-light">Montaje, gestión de recintos, proveeduría técnica y coordinación general.</p>
+            </div>
+            <div class="tech-border bg-[#111112]/40 p-6 backdrop-blur-sm">
+                <span class="font-syne text-4xl lg:text-5xl font-bold text-white block mb-2">360°</span>
+                <span class="text-[10px] text-gray-500 tracking-widest uppercase font-semibold block mb-1">Integración de Medios</span>
+                <p class="text-xs text-gray-400 font-light">Estrategias de comunicación multiplataforma con trazabilidad absoluta.</p>
+            </div>
+            <div class="tech-border bg-[#111112]/40 p-6 backdrop-blur-sm">
+                <span class="font-syne text-4xl lg:text-5xl font-bold text-white block mb-2">100%</span>
+                <span class="text-[10px] text-gray-500 tracking-widest uppercase font-semibold block mb-1">Cumplimiento Fiscal y Legal</span>
+                <p class="text-xs text-gray-400 font-light">Estructura constituida como S.A. de C.V. lista para licitaciones y contratos corporativos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: ALCANCE DE EJECUCIÓN (Bento Grid con enfoque en datos) -->
+    <section class="max-w-[1400px] mx-auto px-6 mb-24 relative">
+        <div class="crosshair absolute top-0 left-6"></div>
+        <div class="border-t border-white/10 pt-12 mb-12">
+            <span class="text-white/50 text-xs tracking-widest uppercase block mb-2">// CAPACIDADES LOGRADAS</span>
+            <h2 class="font-syne text-3xl text-white">Matriz de Operaciones Recientes</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Operación 1 -->
+            <div class="tech-border bg-[#111112] group">
+                <div class="h-48 bg-white/5 flex items-center justify-center border-b border-white/10 relative overflow-hidden">
+                    <span class="absolute top-4 right-4 text-[10px] text-white/30 font-mono">REG // 01</span>
+                    <i data-lucide="target" class="w-12 h-12 text-white/30 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div class="p-6">
+                    <span class="text-[10px] text-white/50 tracking-widest uppercase block mb-2">MKT & Publicidad</span>
+                    <h3 class="font-syne text-lg text-white mb-2">Despliegue de Campañas Macrorregionales</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Coordinación de estrategias de posicionamiento a nivel industrial, abarcando pauta digital dirigida y vinculación institucional.</p>
+                </div>
+            </div>
+
+            <!-- Operación 2 -->
+            <div class="tech-border bg-[#111112] group lg:col-span-2">
+                <div class="h-48 bg-white/5 flex items-center justify-center border-b border-white/10 relative overflow-hidden">
+                    <span class="absolute top-4 right-4 text-[10px] text-white/30 font-mono">REG // 02</span>
+                    <i data-lucide="globe-2" class="w-12 h-12 text-white/30 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div class="p-6 flex flex-col md:flex-row justify-between md:items-center gap-4">
+                    <div>
+                        <span class="text-[10px] text-white/50 tracking-widest uppercase block mb-2">Agencia de Viajes</span>
+                        <h3 class="font-syne text-lg text-white mb-2">Logística de Traslados Masivos Internacionales</h3>
+                        <p class="text-xs text-gray-500 max-w-xl leading-relaxed">Emisión, control de boletaje, hospedaje y soporte en tiempo real para contingentes corporativos de gran escala con destinos hacia hubs en Europa y América.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Operación 3 -->
+            <div class="tech-border bg-[#111112] group">
+                <div class="h-48 bg-white/5 flex items-center justify-center border-b border-white/10 relative overflow-hidden">
+                    <span class="absolute top-4 right-4 text-[10px] text-white/30 font-mono">REG // 03</span>
+                    <i data-lucide="layers" class="w-12 h-12 text-white/30 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div class="p-6">
+                    <span class="text-[10px] text-white/50 tracking-widest uppercase block mb-2">Organización de Eventos</span>
+                    <h3 class="font-syne text-lg text-white mb-2">Coordinación de Pabellones Industriales</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Gestión operativa que incluye diseño de planos, distribución de carga eléctrica, montaje técnico y control de accesos para ferias comerciales complejas.</p>
+                </div>
+            </div>
+
+            <!-- Operación 4 -->
+            <div class="tech-border bg-[#111112] group">
+                <div class="h-48 bg-white/5 flex items-center justify-center border-b border-white/10 relative overflow-hidden">
+                    <span class="absolute top-4 right-4 text-[10px] text-white/30 font-mono">REG // 04</span>
+                    <i data-lucide="mic" class="w-12 h-12 text-white/30 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div class="p-6">
+                    <span class="text-[10px] text-white/50 tracking-widest uppercase block mb-2">Espectáculos</span>
+                    <h3 class="font-syne text-lg text-white mb-2">Producción Técnica de Eventos Masivos</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Supervisión de sistemas de audio profesional, iluminación, rider técnico, seguridad de perímetros y logística de boletaje para shows artísticos.</p>
+                </div>
+            </div>
+
+            <!-- Operación 5 -->
+            <div class="tech-border bg-[#111112] group">
+                <div class="h-48 bg-white/5 flex items-center justify-center border-b border-white/10 relative overflow-hidden">
+                    <span class="absolute top-4 right-4 text-[10px] text-white/30 font-mono">REG // 05</span>
+                    <i data-lucide="award" class="w-12 h-12 text-white/30 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div class="p-6">
+                    <span class="text-[10px] text-white/50 tracking-widest uppercase block mb-2">Viajes Premium</span>
+                    <h3 class="font-syne text-lg text-white mb-2">Operación de Rutas e Itinerarios de Alta Gama</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Diseño de experiencias VIP exclusivas, transportación privada blindada/ejecutiva y selección minuciosa de destinos premium en territorio nacional.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN: CRONOLOGÍA / HITOS OPERATIVOS -->
+    <section class="max-w-[1400px] mx-auto px-6 mb-40 relative">
+        <div class="crosshair absolute top-0 left-6"></div>
+        <div class="border-t border-white/10 pt-12 mb-16">
+            <span class="text-white/50 text-xs tracking-widest uppercase block mb-2">// EVOLUCIÓN ESTRUCTURAL</span>
+            <h2 class="font-syne text-3xl text-white">Línea de Maduración Comercial</h2>
+        </div>
+
+        <div class="relative border-l border-white/10 ml-4 md:ml-32 pl-8 space-y-12">
+            
+            <!-- Hito 1 -->
+            <div class="relative">
+                <!-- Nodo visual -->
+                <div class="absolute -left-[37px] top-1.5 w-4 h-4 bg-white border-4 border-[#161618] rounded-full"></div>
+                <div class="md:absolute md:-left-40 md:top-0">
+                    <span class="font-syne text-2xl font-bold text-white/40 block leading-none md:text-right w-24">Fase 01</span>
+                </div>
+                <div class="max-w-2xl">
+                    <h4 class="font-syne text-xl text-white mb-2">Consolidación Legal y Operativa</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Constitución formal como Casa Regole S.A. de C.V. Unificación de los servicios de mercadotecnia estratégica bajo un mismo ecosistema legal para dar certeza absoluta a clientes corporativos y dependencias gubernamentales.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Hito 2 -->
+            <div class="relative">
+                <div class="absolute -left-[37px] top-1.5 w-4 h-4 bg-white border-4 border-[#161618] rounded-full"></div>
+                <div class="md:absolute md:-left-40 md:top-0">
+                    <span class="font-syne text-2xl font-bold text-white/40 block leading-none md:text-right w-24">Fase 02</span>
+                </div>
+                <div class="max-w-2xl">
+                    <h4 class="font-syne text-xl text-white mb-2">Integración de la Vertical Turística y de Eventos</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Apertura oficial de la división de Agencia de Viajes y Logística. Esta integración nos permitió centralizar por completo la organización de ferias, convenciones industriales y espectáculos masivos sin depender de intermediarios externos.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Hito 3 -->
+            <div class="relative">
+                <div class="absolute -left-[37px] top-1.5 w-4 h-4 bg-white border-4 border-[#161618] rounded-full"></div>
+                <div class="md:absolute md:-left-40 md:top-0">
+                    <span class="font-syne text-2xl font-bold text-white/40 block leading-none md:text-right w-24">Fase 03</span>
+                </div>
+                <div class="max-w-2xl">
+                    <h4 class="font-syne text-xl text-white mb-2">Escalabilidad de Infraestructura y Cobertura Nacional</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Establecimiento de alianzas estratégicas globales de boletaje y proveeduría técnica. Capacidad para coordinar operaciones simultáneas de marketing B2B y logística de viajes aéreos y terrestres en cualquier región de la República Mexicana.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER VECTORIAL -->
+    <footer class="border-t border-white/10 bg-[#111112] pt-20 pb-10 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 vector-grid opacity-30 pointer-events-none"></div>
+        
+        <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+            
+            <div class="lg:col-span-6">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-white flex items-center justify-center p-2 rounded-sm">
+                        <img src="assets/logo.png" alt="logo" class="h-full w-full object-contain">
+                    </div>
+                    <div>
+                        <h4 class="font-syne text-2xl text-white leading-none">Casa Regole</h4>
+                        <span class="text-[10px] tracking-[0.2em] text-gray-500 uppercase">S.A. de C.V.</span>
+                    </div>
+                </div>
+                <p class="text-gray-500 text-sm max-w-sm leading-relaxed">
+                    Versatilidad y soluciones integrales. Destacamos por nuestro profesionalismo, creatividad y compromiso con la satisfacción total de cada cliente.
+                </p>
+            </div>
+
+            <div class="lg:col-span-6 flex flex-col lg:items-end">
+                <h5 class="text-white text-sm font-semibold tracking-wider uppercase mb-4">Sede Operativa</h5>
+                <p class="text-gray-400 text-sm leading-relaxed lg:text-right">
+                    Blvd Pedro Figueroa Siller #2990 <br>
+                    Int. A-20 y A-21, San Patricio <br>
+                    Saltillo, Coahuila C.P. 25204
+                </p>
+                <a href="contacto.html" class="mt-6 flex items-center gap-2 text-white hover:text-gray-300 transition-colors text-sm border-b border-white pb-1">
+                    Contactar Agencia <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="max-w-[1400px] mx-auto border-t border-white/10 mt-20 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+            <span class="text-xs text-gray-600 font-light">© 2026 Casa Regole S.A. de C.V. Todos los derechos reservados.</span>
+            <div class="flex gap-4">
+                <span class="text-xs text-gray-600 font-light">Saltillo, MX</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const openNav = document.getElementById('open-nav');
+        const closeNav = document.getElementById('close-nav');
+        const navOverlay = document.getElementById('nav-overlay');
+        openNav.onclick = () => { navOverlay.classList.remove('translate-x-full'); document.body.style.overflow = 'hidden'; };
+        closeNav.onclick = () => { navOverlay.classList.add('translate-x-full'); document.body.style.overflow = 'auto'; };
+    </script>
+</body>
+</html>
